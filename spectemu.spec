@@ -76,7 +76,7 @@ Wersja X11 emulatora Sinclair ZX Spectrum.
 
 %build
 autoconf
-%configure 
+%configure
 %{__make}
 %{__make} tapeout
 
