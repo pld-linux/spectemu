@@ -11,11 +11,11 @@ Source2:	%{name}.desktop
 Source3:	%{name}.png
 Patch0:		%{name}-readline.patch
 URL:		http://www.inf.bme.hu/~mszeredi/spectemu/
-%ifnarch ppc sparc sparcv9 sparc64
-BuildRequires:	svgalib-devel
-%endif
 BuildRequires:	XFree86-devel
 BuildRequires:	readline-devel
+%ifarch %{ix86}
+BuildRequires:	svgalib-devel
+%endif
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %define		_xbindir	/usr/X11R6/bin
@@ -52,7 +52,6 @@ generowanie obrazu i d¼wiêku, ma mo¿liwo¶æ wczytywania i nagrywania
 
 Ten pakiet zawiera pliki wspólne dla wersji x11 i svga.
 
-%ifnarch ppc sparc sparcv9 sparc64
 %package svga
 Summary:	Sinclair ZX Spectrum emulator - svgalib version
 Summary(pl):	Emulator ZX Spectrum 48k - wersja svgalib
@@ -64,7 +63,6 @@ svgalib version of Sinclair ZX Spectrum emulator.
 
 %description svga -l pl
 Wersja svgalib emulatora Sinclair ZX Spectrum.
-%endif
 
 %package x11
 Summary:	Sinclair ZX Spectrum emulator - X11 version
@@ -102,7 +100,7 @@ install spectemu.cfg $RPM_BUILD_ROOT%{_datadir}/spectemu/spectemu.cfg
 install spectkey.gif $RPM_BUILD_ROOT%{_datadir}/spectemu/spectkey.gif
 install specsinc.xpm $RPM_BUILD_ROOT%{_datadir}/spectemu/specsinc.xpm
 
-%ifnarch ppc sparc sparcv9 sparc64
+%ifarch %{ix86}
 install vgaspect $RPM_BUILD_ROOT%{_bindir}
 echo ".so xspect.1" > $RPM_BUILD_ROOT%{_mandir}/man1/vgaspect.1
 echo ".so xspect.1" > $RPM_BUILD_ROOT%{_mandir}/pl/man1/vgaspect.1
@@ -124,7 +122,7 @@ rm -rf $RPM_BUILD_ROOT
 %{_mandir}/man1/*
 %lang(pl) %{_mandir}/pl/man1/*
 
-%ifnarch ppc sparc sparcv9 sparc64
+%ifarch %{ix86}
 %files svga
 %defattr(644,root,root,755)
 %attr(755,root,root) %{_bindir}/vgaspect
