@@ -9,6 +9,8 @@ Group(de):	Applikationen/Emulators
 Group(pl):	Aplikacje/Emulatory
 Source0:	http://www.inf.bme.hu/~mszeredi/spectemu/%{name}-%{version}.tar.gz
 Source1:	%{name}-pl-man-pages.tar.gz
+Source2:	%{name}.desktop
+Source3:	%{name}.png
 BuildRequires:	svgalib-devel
 BuildRequires:	XFree86-devel
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
@@ -35,7 +37,8 @@ autoconf
 
 %install
 rm -rf $RPM_BUILD_ROOT
-install -d $RPM_BUILD_ROOT{%{_bindir},%{_mandir}/man1,%{_mandir}/pl/man1,%{_datadir}/spectemu}
+install -d $RPM_BUILD_ROOT{%{_bindir},%{_mandir}/{,pl}/man1}
+	$RPM_BUILD_ROOT{%{_datadir}/spectemu,%{_pixmapsdir},%{_applnkdir}/Amusements}
 
 install vgaspect xspect tapeout $RPM_BUILD_ROOT%{_bindir}
 install xspect.1 tapeout.1 $RPM_BUILD_ROOT%{_mandir}/man1
@@ -46,6 +49,9 @@ install spectkey.gif $RPM_BUILD_ROOT%{_datadir}/spectemu/spectkey.gif
 install specsinc.xpm $RPM_BUILD_ROOT%{_datadir}/spectemu/specsinc.xpm
 echo ".so xspect.1" > $RPM_BUILD_ROOT%{_mandir}/man1/vgaspect.1
 echo ".so xspect.1" > $RPM_BUILD_ROOT%{_mandir}/pl/man1/vgaspect.1
+
+install %{SOURCE2} $RPM_BUILD_ROOT%{_applnkdir}/Amusements
+install %{SOURCE3} $RPM_BUILD_ROOT%{_pixmapsdir}
 
 gzip -9nf README ChangeLog TODO
 
@@ -61,3 +67,5 @@ rm -rf $RPM_BUILD_ROOT
 %{_datadir}/spectemu
 %{_mandir}/man1/*
 %lang(pl) %{_mandir}/pl/man1/*
+%{_applnkdir}/Amusements/*
+%{_pixmapsdir}/*
