@@ -7,4 +7,5 @@ Exec=xspect
 Icon=spectemu.png
 Terminal=true
 Type=Application
+Categories=Utility;Emulator;
 # vi: encoding=utf-8
