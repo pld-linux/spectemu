@@ -6,7 +6,7 @@ Summary:	Sinclair ZX Spectrum emulator
 Summary(pl):	Emulator ZX Spectrum 48k
 Name:		spectemu
 Version:	0.99.3
-Release:	1
+Release:	2
 License:	GPL
 Group:		Applications/Emulators
 Source0:	http://www.inf.bme.hu/~mszeredi/spectemu/%{name}-%{version}.tar.gz
@@ -94,7 +94,7 @@ cp -f /usr/share/automake/config.* .
 %install
 rm -rf $RPM_BUILD_ROOT
 install -d $RPM_BUILD_ROOT{%{_bindir},%{_mandir}{,/pl}/man1} \
-	$RPM_BUILD_ROOT{%{_datadir}/spectemu,%{_pixmapsdir},%{_applnkdir}/Amusements}
+	$RPM_BUILD_ROOT{%{_datadir}/spectemu,%{_pixmapsdir},%{_desktopdir}}
 
 install tapeout $RPM_BUILD_ROOT%{_bindir}
 install xspect $RPM_BUILD_ROOT%{_bindir}
@@ -111,7 +111,7 @@ echo ".so xspect.1" > $RPM_BUILD_ROOT%{_mandir}/man1/vgaspect.1
 echo ".so xspect.1" > $RPM_BUILD_ROOT%{_mandir}/pl/man1/vgaspect.1
 %endif
 
-install %{SOURCE2} $RPM_BUILD_ROOT%{_applnkdir}/Amusements
+install %{SOURCE2} $RPM_BUILD_ROOT%{_desktopdir}
 install %{SOURCE3} $RPM_BUILD_ROOT%{_pixmapsdir}
 
 %clean
@@ -134,5 +134,5 @@ rm -rf $RPM_BUILD_ROOT
 %files x11
 %defattr(644,root,root,755)
 %attr(755,root,root) %{_bindir}/xspect
-%{_applnkdir}/Amusements/*
+%{_desktopdir}/*
 %{_pixmapsdir}/*
