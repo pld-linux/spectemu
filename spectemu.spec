@@ -64,7 +64,7 @@ rm -rf $RPM_BUILD_ROOT
 %doc *.gz
 %attr(755,root,root) %{_bindir}/xspect
 %attr(755,root,root) %{_bindir}/tapeout
-%attr(4755,root,root) %{_bindir}/vgaspect
+%attr(755,root,root) %{_bindir}/vgaspect
 %{_datadir}/spectemu
 %{_mandir}/man1/*
 %lang(pl) %{_mandir}/pl/man1/*
