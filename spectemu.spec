@@ -13,7 +13,7 @@ Patch0:		%{name}-readline.patch
 URL:		http://www.inf.bme.hu/~mszeredi/spectemu/
 BuildRequires:	XFree86-devel
 BuildRequires:	readline-devel
-%ifarch %{ix86} ppc
+%ifarch %{ix86} alpha ppc
 BuildRequires:	svgalib-devel
 %endif
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
@@ -100,7 +100,7 @@ install spectemu.cfg $RPM_BUILD_ROOT%{_datadir}/spectemu/spectemu.cfg
 install spectkey.gif $RPM_BUILD_ROOT%{_datadir}/spectemu/spectkey.gif
 install specsinc.xpm $RPM_BUILD_ROOT%{_datadir}/spectemu/specsinc.xpm
 
-%ifarch %{ix86} ppc
+%ifarch %{ix86} alpha ppc
 install vgaspect $RPM_BUILD_ROOT%{_bindir}
 echo ".so xspect.1" > $RPM_BUILD_ROOT%{_mandir}/man1/vgaspect.1
 echo ".so xspect.1" > $RPM_BUILD_ROOT%{_mandir}/pl/man1/vgaspect.1
@@ -109,20 +109,18 @@ echo ".so xspect.1" > $RPM_BUILD_ROOT%{_mandir}/pl/man1/vgaspect.1
 install %{SOURCE2} $RPM_BUILD_ROOT%{_applnkdir}/Amusements
 install %{SOURCE3} $RPM_BUILD_ROOT%{_pixmapsdir}
 
-gzip -9nf README ChangeLog TODO example.cfg
-
 %clean
 rm -rf $RPM_BUILD_ROOT
 
 %files common
 %defattr(644,root,root,755)
-%doc *.gz
+%doc README ChangeLog TODO example.cfg
 %attr(755,root,root) %{_bindir}/tapeout
 %{_datadir}/spectemu
 %{_mandir}/man1/*
 %lang(pl) %{_mandir}/pl/man1/*
 
-%ifarch %{ix86} ppc
+%ifarch %{ix86} alpha ppc
 %files svga
 %defattr(644,root,root,755)
 %attr(755,root,root) %{_bindir}/vgaspect
