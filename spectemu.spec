@@ -5,8 +5,6 @@ Version:	0.95.3
 Release:	4
 License:	GPL
 Group:		Applications/Emulators
-Group(de):	Applikationen/Emulators
-Group(pl):	Aplikacje/Emulatory
 Source0:	http://www.inf.bme.hu/~mszeredi/spectemu/%{name}-%{version}.tar.gz
 Source1:	%{name}-pl-man-pages.tar.gz
 Source2:	%{name}.desktop
@@ -33,8 +31,6 @@ generowanie obrazu i d¼wiêku, ma mo¿liwo¶æ wczytywania i nagrywania
 Summary:	Sinclair ZX Spectrum emulator - common part
 Summary(pl):	Emulator ZX Spectrum 48k - czê¶æ wspólna
 Group:		Applications/Emulators
-Group(de):	Applikationen/Emulators
-Group(pl):	Aplikacje/Emulatory
 
 %description common
 This package contains a 48k ZX-Spectrum emulator for Linux, with full
@@ -55,8 +51,6 @@ Ten pakiet zawiera pliki wspólne dla wersji x11 i svga.
 Summary:	Sinclair ZX Spectrum emulator - svgalib version
 Summary(pl):	Emulator ZX Spectrum 48k - wersja svgalib
 Group:		Applications/Emulators
-Group(de):	Applikationen/Emulators
-Group(pl):	Aplikacje/Emulatory
 Requires:	%{name}-common = %{version}
 
 %description svga
@@ -69,8 +63,6 @@ Wersja svgalib emulatora Sinclair ZX Spectrum.
 Summary:	Sinclair ZX Spectrum emulator - X11 version
 Summary(pl):	Emulator ZX Spectrum 48k - wersja X11
 Group:		Applications/Emulators
-Group(de):	Applikationen/Emulators
-Group(pl):	Aplikacje/Emulatory
 Requires:	%{name}-common = %{version}
 
 %description x11
