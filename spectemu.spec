@@ -5,7 +5,8 @@ Version:	0.95.3
 Release:	1
 License:	GPL
 Group:		Applications/Emulators
-Group:		Aplikacje/Emulatory
+Group(de):	Applikationen/Emulators
+Group(pl):	Aplikacje/Emulatory
 Source0:	http://www.inf.bme.hu/~mszeredi/spectemu/%{name}-%{version}.tar.gz
 Source1:	%{name}-pl-man-pages.tar.gz
 BuildRequires:	svgalib-devel
@@ -34,14 +35,10 @@ autoconf
 
 %install
 rm -rf $RPM_BUILD_ROOT
-install -d $RPM_BUILD_ROOT{%{_bindir},%{_mandir}/man1,%{_mandir}/pl/man1,\
-%{_datadir}/spectemu}
+install -d $RPM_BUILD_ROOT{%{_bindir},%{_mandir}/man1,%{_mandir}/pl/man1,%{_datadir}/spectemu}
 
-install vgaspect $RPM_BUILD_ROOT%{_bindir}/vgaspect
-install xspect $RPM_BUILD_ROOT%{_bindir}/xspect
-install tapeout $RPM_BUILD_ROOT%{_bindir}/tapeout
-install xspect.1 $RPM_BUILD_ROOT%{_mandir}/man1/xspect.1
-install tapeout.1 $RPM_BUILD_ROOT%{_mandir}/man1/tapeout.1
+install vgaspect xspect tapeout $RPM_BUILD_ROOT%{_bindir}
+install xspect.1 tapeout.1 $RPM_BUILD_ROOT%{_mandir}/man1
 install xspect.man $RPM_BUILD_ROOT%{_mandir}/pl/man1/xspect.1
 install tapeout.man $RPM_BUILD_ROOT%{_mandir}/pl/man1/tapeout.1
 install spectemu.cfg $RPM_BUILD_ROOT%{_datadir}/spectemu/spectemu.cfg
@@ -49,6 +46,7 @@ install spectkey.gif $RPM_BUILD_ROOT%{_datadir}/spectemu/spectkey.gif
 install specsinc.xpm $RPM_BUILD_ROOT%{_datadir}/spectemu/specsinc.xpm
 echo ".so xspect.1" > $RPM_BUILD_ROOT%{_mandir}/man1/vgaspect.1
 echo ".so xspect.1" > $RPM_BUILD_ROOT%{_mandir}/pl/man1/vgaspect.1
+
 gzip -9nf README ChangeLog TODO
 
 %clean
@@ -57,9 +55,9 @@ rm -rf $RPM_BUILD_ROOT
 %files
 %defattr(644,root,root,755)
 %doc *.gz
-%{_datadir}/spectemu/*
-%{_mandir}/man1/*
-%{_mandir}/pl/man1/*
 %attr(755,root,root) %{_bindir}/xspect
 %attr(755,root,root) %{_bindir}/tapeout
 %attr(4755,root,root) %{_bindir}/vgaspect
+%{_datadir}/spectemu
+%{_mandir}/man1/*
+%lang(pl) %{_mandir}/pl/man1/*
