@@ -11,6 +11,7 @@ Source0:	http://www.inf.bme.hu/~mszeredi/spectemu/%{name}-%{version}.tar.gz
 Source1:	%{name}-pl-man-pages.tar.gz
 Source2:	%{name}.desktop
 Source3:	%{name}.png
+URL:		http://www.inf.bme.hu/~mszeredi/spectemu/
 BuildRequires:	svgalib-devel
 BuildRequires:	XFree86-devel
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
