@@ -4,5 +4,5 @@ Comment=Sinclair ZX Spectrum emulator
 Comment[pl]=Emulator ZX Spectrum 48k
 Exec=xspect
 Icon=spectemu.png
-Terminal=1
+Terminal=true
 Type=Application
