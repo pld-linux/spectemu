@@ -1,16 +1,14 @@
---- spectemu-0.95.3/configure.in	Sun Jan 10 14:10:44 1999
-+++ spectemu-0.95.3.new/configure.in	Sat Mar 16 19:43:26 2002
-@@ -134,11 +134,11 @@
+--- spectemu-0.99.3/configure.in.orig	2002-06-25 17:41:39.000000000 +0200
++++ spectemu-0.99.3/configure.in	2004-01-18 01:01:50.239598720 +0100
+@@ -143,8 +143,9 @@
  [if test "$withval" = no; then withrl=no; fi])
  
  if test "$withrl" = yes; then
--  AC_CHECK_LIB(readline, readline, have_rl=yes, have_rl=no, -ltermcap)
-+  AC_CHECK_LIB(readline, readline, have_rl=yes, have_rl=no)
+-  AC_CHECK_LIB(termcap, tgetent, termcaplib="-ltermcap", 
+-    [AC_CHECK_LIB(ncurses, tgetent, termcaplib="-lncurses")])
++  AC_CHECK_LIB(tinfo, tgetent, termcaplib="-ltinfo",
++    [AC_CHECK_LIB(ncurses, tgetent, termcaplib="-lncurses",
++      [AC_CHECK_LIB(termcap, tgetent, termcaplib="-ltermcap")])])
+ 
+   AC_CHECK_LIB(readline, readline, have_rl=yes, have_rl=no, "$termcaplib")
    if test "$have_rl" = yes; then
-     AC_CHECK_HEADER(readline/readline.h, [
-       AC_DEFINE(HAVE_READLINE)
--      rllibs="-lreadline -ltermcap"], [
-+      rllibs="-lreadline"], [
-       AC_MSG_WARN([make sure 'readline.h' is in a 'readline' subdirectory])])
-   fi
- fi
