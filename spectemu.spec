@@ -12,6 +12,7 @@ Source3:	%{name}.png
 Patch0:		%{name}-readline.patch
 URL:		http://www.inf.bme.hu/~mszeredi/spectemu/
 BuildRequires:	XFree86-devel
+BuildRequires:	autoconf
 BuildRequires:	readline-devel
 %ifarch %{ix86} alpha ppc
 BuildRequires:	svgalib-devel
