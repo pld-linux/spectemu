@@ -2,16 +2,18 @@ Summary:	Sinclair ZX Spectrum emulator
 Summary(pl):	Emulator ZX Spectrum 48k
 Name:		spectemu
 Version:	0.95.3
-Release:	4
+Release:	5
 License:	GPL
 Group:		Applications/Emulators
 Source0:	http://www.inf.bme.hu/~mszeredi/spectemu/%{name}-%{version}.tar.gz
 Source1:	%{name}-pl-man-pages.tar.gz
 Source2:	%{name}.desktop
 Source3:	%{name}.png
+Patch0:		%{name}-readline.patch
 URL:		http://www.inf.bme.hu/~mszeredi/spectemu/
 BuildRequires:	svgalib-devel
 BuildRequires:	XFree86-devel
+BuildRequires:	readline-devel
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %define		_xbindir	/usr/X11R6/bin
@@ -31,6 +33,7 @@ generowanie obrazu i d¼wiêku, ma mo¿liwo¶æ wczytywania i nagrywania
 Summary:	Sinclair ZX Spectrum emulator - common part
 Summary(pl):	Emulator ZX Spectrum 48k - czê¶æ wspólna
 Group:		Applications/Emulators
+Obsoletes:	spectemu
 
 %description common
 This package contains a 48k ZX-Spectrum emulator for Linux, with full
@@ -73,6 +76,7 @@ Wersja X11 emulatora Sinclair ZX Spectrum.
 
 %prep
 %setup -q -a1
+%patch0 -p1
 
 %build
 autoconf
@@ -99,7 +103,7 @@ echo ".so xspect.1" > $RPM_BUILD_ROOT%{_mandir}/pl/man1/vgaspect.1
 install %{SOURCE2} $RPM_BUILD_ROOT%{_applnkdir}/Amusements
 install %{SOURCE3} $RPM_BUILD_ROOT%{_pixmapsdir}
 
-gzip -9nf README ChangeLog TODO
+gzip -9nf README ChangeLog TODO example.cfg
 
 %clean
 rm -rf $RPM_BUILD_ROOT
@@ -109,14 +113,12 @@ rm -rf $RPM_BUILD_ROOT
 %doc *.gz
 %attr(755,root,root) %{_bindir}/tapeout
 %{_datadir}/spectemu
-%{_mandir}/man1/[xt]*
-%lang(pl) %{_mandir}/pl/man1/[xt]*
+%{_mandir}/man1/*
+%lang(pl) %{_mandir}/pl/man1/*
 
 %files svga
 %defattr(644,root,root,755)
 %attr(755,root,root) %{_bindir}/vgaspect
-%{_mandir}/man1/vgaspect.1*
-%lang(pl) %{_mandir}/pl/man1/vgaspect.1*
 
 %files x11
 %defattr(644,root,root,755)
