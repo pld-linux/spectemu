@@ -6,7 +6,9 @@ Release:	8
 License:	GPL
 Group:		Applications/Emulators
 Source0:	http://www.inf.bme.hu/~mszeredi/spectemu/%{name}-%{version}.tar.gz
+# Source0-md5:	dce2e85ffa37fecbef1a470c4fa72f0a
 Source1:	%{name}-pl-man-pages.tar.gz
+# Source1-md5:	ce7665f0dbc898773c6f798a63ee3ec2
 Source2:	%{name}.desktop
 Source3:	%{name}.png
 Patch0:		%{name}-readline.patch
