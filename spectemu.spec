@@ -2,9 +2,6 @@
 # Conditional build:
 %bcond_without	svga	# without SVGAlib version
 #
-%ifnarch %{ix86} alpha
-%undefine	with_svga
-%endif
 Summary:	Sinclair ZX Spectrum emulator
 Summary(pl):	Emulator ZX Spectrum 48k
 Name:		spectemu
@@ -63,7 +60,7 @@ Ten pakiet zawiera pliki wspólne dla wersji x11 i svga.
 Summary:	Sinclair ZX Spectrum emulator - svgalib version
 Summary(pl):	Emulator ZX Spectrum 48k - wersja svgalib
 Group:		Applications/Emulators
-Requires:	%{name}-common = %{version}
+Requires:	%{name}-common = %{version}-%{release}
 
 %description svga
 svgalib version of Sinclair ZX Spectrum emulator.
@@ -75,7 +72,7 @@ Wersja svgalib emulatora Sinclair ZX Spectrum.
 Summary:	Sinclair ZX Spectrum emulator - X11 version
 Summary(pl):	Emulator ZX Spectrum 48k - wersja X11
 Group:		Applications/Emulators
-Requires:	%{name}-common = %{version}
+Requires:	%{name}-common = %{version}-%{release}
 
 %description x11
 X11 version of Sinclair ZX Spectrum emulator.
