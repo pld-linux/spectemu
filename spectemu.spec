@@ -17,11 +17,12 @@ Source2:	%{name}.desktop
 Source3:	%{name}.png
 Patch0:		%{name}-readline.patch
 URL:		http://www.inf.bme.hu/~mszeredi/spectemu/
-BuildRequires:	autoconf
+BuildRequires:	autoconf >= 2.59-9
 BuildRequires:	automake
 BuildRequires:	readline-devel
 %{?with_svga:BuildRequires:	svgalib-devel}
-BuildRequires:	xorg-lib-libX11-devel
+BuildRequires:	xorg-lib-libXext-devel
+BuildRequires:	xorg-lib-libXxf86vm-devel
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
