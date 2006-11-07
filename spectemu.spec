@@ -135,5 +135,5 @@ rm -rf $RPM_BUILD_ROOT
 %files x11
 %defattr(644,root,root,755)
 %attr(755,root,root) %{_bindir}/xspect
-%{_desktopdir}/*
+%{_desktopdir}/*.desktop
 %{_pixmapsdir}/*
