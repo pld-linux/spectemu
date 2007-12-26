@@ -1,10 +1,9 @@
 [Desktop Entry]
-Encoding=UTF-8
 Name=SpectEmu
 Comment=Sinclair ZX Spectrum emulator
 Comment[pl]=Emulator ZX Spectrum 48k
 Exec=xspect
-Icon=spectemu.png
+Icon=spectemu
 Terminal=true
 Type=Application
 Categories=Utility;Emulator;
