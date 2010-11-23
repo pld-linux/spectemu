@@ -1,12 +1,12 @@
 #
 # Conditional build:
-%bcond_without	svga	# without SVGAlib version
+%bcond_with	svga	# without SVGAlib version
 #
 Summary:	Sinclair ZX Spectrum emulator
 Summary(pl.UTF-8):	Emulator ZX Spectrum 48k
 Name:		spectemu
 Version:	0.99.3
-Release:	7
+Release:	8
 License:	GPL
 Group:		Applications/Emulators
 Source0:	http://www.inf.bme.hu/~mszeredi/spectemu/%{name}-%{version}.tar.gz
