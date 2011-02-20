@@ -7,16 +7,16 @@ Summary(pl.UTF-8):	Emulator ZX Spectrum 48k
 Name:		spectemu
 Version:	0.99.3
 Release:	8
-License:	GPL
+License:	GPL v2+
 Group:		Applications/Emulators
-Source0:	http://www.inf.bme.hu/~mszeredi/spectemu/%{name}-%{version}.tar.gz
+Source0:	http://downloads.sourceforge.net/spectemu/%{name}-%{version}.tar.gz
 # Source0-md5:	67330d27e3f5c9127413bd6f35aa664b
 Source1:	%{name}-pl-man-pages.tar.gz
 # Source1-md5:	ce7665f0dbc898773c6f798a63ee3ec2
 Source2:	%{name}.desktop
 Source3:	%{name}.png
 Patch0:		%{name}-readline.patch
-URL:		http://www.inf.bme.hu/~mszeredi/spectemu/
+URL:		http://spectemu.sourceforge.net/
 BuildRequires:	autoconf >= 2.59-9
 BuildRequires:	automake
 BuildRequires:	readline-devel
@@ -123,17 +123,21 @@ rm -rf $RPM_BUILD_ROOT
 %doc README ChangeLog TODO example.cfg
 %attr(755,root,root) %{_bindir}/tapeout
 %{_datadir}/spectemu
-%{_mandir}/man1/*
-%lang(pl) %{_mandir}/pl/man1/*
+%{_mandir}/man1/tapeout.1*
+%{_mandir}/man1/xspect.1*
+%lang(pl) %{_mandir}/pl/man1/tapeout.1*
+%lang(pl) %{_mandir}/pl/man1/xspect.1*
 
 %if %{with svga}
 %files svga
 %defattr(644,root,root,755)
 %attr(755,root,root) %{_bindir}/vgaspect
+%{_mandir}/man1/vgaspect.1*
+%lang(pl) %{_mandir}/pl/man1/vgaspect.1*
 %endif
 
 %files x11
 %defattr(644,root,root,755)
 %attr(755,root,root) %{_bindir}/xspect
-%{_desktopdir}/*.desktop
-%{_pixmapsdir}/*
+%{_desktopdir}/spectemu.desktop
+%{_pixmapsdir}/spectemu.png
