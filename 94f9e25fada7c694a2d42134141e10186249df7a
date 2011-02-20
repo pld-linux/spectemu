@@ -1,0 +1,3 @@
+- updated URLs
+- more verbose files
+- updated readline patch to prefer libtinfow (following our readline)
