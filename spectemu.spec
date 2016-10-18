@@ -6,7 +6,7 @@ Summary:	Sinclair ZX Spectrum emulator
 Summary(pl.UTF-8):	Emulator ZX Spectrum 48k
 Name:		spectemu
 Version:	0.99.3
-Release:	9
+Release:	10
 License:	GPL v2+
 Group:		Applications/Emulators
 Source0:	http://downloads.sourceforge.net/spectemu/%{name}-%{version}.tar.gz
