@@ -83,7 +83,7 @@ Wersja X11 emulatora Sinclair ZX Spectrum.
 
 %prep
 %setup -q -a1
-%patch0 -p1
+%patch -P0 -p1
 
 %build
 cp -f /usr/share/automake/config.* .
